@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fruits & Légumes</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="logo">🍏 Bio & Frais</div>
+  </header>
+
+  <main id="accueil" class="page active">
+    <h1>Bienvenue chez Bio & Frais</h1>
+    <p>Des fruits et légumes de saison, frais et locaux.</p>
+    <a class="button-link" onclick="afficherPage('produits')">Voir nos produits</a>
+  </main>
+
+  <section id="produits" class="page">
+    <h2>Nos produits</h2>
+    <div class="produits">
+      <div class="produit">
+        <h3>Tomates</h3>
+        <p>Rouges, juteuses, récoltées ce matin.</p>
+      </div>
+      <div class="produit">
+        <h3>Pommes</h3>
+        <p>Croquantes et sucrées, variété locale.</p>
+      </div>
+      <div class="produit">
+        <h3>Carottes</h3>
+        <p>Cultivées sans pesticide, pleines de goût.</p>
+      </div>
+    </div>
+    <span class="back-arrow" onclick="afficherPage('accueil')">← Retour à l’accueil</span>
+  </section>
+
+  <footer>
+    &copy; 2025 Bio & Frais - Tous droits réservés
+  </footer>
+
+  <script>
+    function afficherPage(pageId) {
+      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+      document.getElementById(pageId).classList.add("active");
+    }
+  </script>
+
+</body>
+  </html>
+  
