@@ -1,0 +1,131 @@
+:root {
+  --text-light: #ffffff;
+  --text-dark: #1e1e1e;
+  --bg-gradient-start: #4caf50;
+  --bg-gradient-end: #81c784;
+  --accent: #ffffff;
+  --radius: 20px;
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+main, section {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  flex-grow: 1;
+}
+
+h1, h2 {
+  font-family: var(--font-title);
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  opacity: 0.9;
+}
+
+.button-link {
+  text-decoration: none;
+  color: var(--bg-gradient-start);
+  background-color: var(--accent);
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius);
+  font-weight: bold;
+  transition: 0.3s ease;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.button-link:hover {
+  background-color: #eee;
+}
+
+.produits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.produit {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.produit h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.back-arrow {
+  display: inline-block;
+  margin-top: 2rem;
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.back-arrow:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-top: auto;
+}
+
+.page {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+.page.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+    
