@@ -4,7 +4,196 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Le Petit Marché</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text-dark: #1e1e1e;
+      --bg-light: #f9f9f9;
+      --accent: #2a9d8f;
+      --radius: 14px;
+      --font-title: 'Playfair Display', serif;
+      --font-body: 'Roboto', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-light);
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    header {
+      background: white;
+      padding: 1.2rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: var(--font-title);
+      font-size: 2rem;
+      color: var(--accent);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    nav button {
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-left: 1rem;
+    }
+
+    nav button:hover {
+      background-color: #237d74;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 3rem 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: var(--font-title);
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 1.5rem;
+    }
+
+    .button-main {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-main:hover {
+      background-color: #237d74;
+    }
+
+    .produits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .produit {
+      background: white;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .produit:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+
+    .produit h3 {
+      font-family: var(--font-title);
+      color: var(--accent);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .produit p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .button-link-plain {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 2rem;
+    }
+
+    .button-link-plain:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      background: #eee;
+      color: #555;
+      margin-top: auto;
+    }
+
+    .page {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .page.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      nav button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -43,9 +232,7 @@
           <p>8,90€ le pot de 500g - Pur et naturel</p>
         </div>
       </div>
-      <p style="margin-top: 2rem;">
-        <button onclick="showPage('accueil')" class="button-link-plain">← Retour à l’accueil</button>
-      </p>
+      <button onclick="showPage('accueil')" class="button-link-plain">← Retour à l’accueil</button>
     </section>
   </main>
 
@@ -57,7 +244,7 @@
     function showPage(id) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById(id).classList.add('active');
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
     }
   </script>
 
